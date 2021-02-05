@@ -1,6 +1,7 @@
 # HyreCar Presentation
 
-Let's go for a ride! :car: This is a carsharing platform for rideshare drivers :car:
+Let's go for a ride! :car:
+<br/>This is a carsharing platform for rideshare drivers
 <br/>
 A presentation for HyreCar that showcases my skills as a web developer
 
@@ -8,14 +9,14 @@ A presentation for HyreCar that showcases my skills as a web developer
 
 The purpose of this application is for a user to perform queries and commands to cars that they own.
 
-### Technology Stacks
+## Technology Stacks
 
-## Front-End
+### Front-End
 
 ✔️ JavaScript\
 ✔️React\
 ✔️Material-ui components
 
-## Back-End
+### Back-End
 
 ✔️Node.js
