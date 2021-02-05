@@ -59,7 +59,7 @@ class Registration extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     if (validateForm(this.state.errors)) {
-      this.state.history.push("/Rentals");
+      this.props.history.push("/Rentals");
       console.log("Valid Form");
     } else {
       console.log("Invalid Form");
