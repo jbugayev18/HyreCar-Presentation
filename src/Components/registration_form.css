@@ -79,7 +79,7 @@ input::placeholder {
   font-weight: lighter;
   color: #bbb;
 }
-
+/* 
 button {
   min-width: 100%;
   cursor: pointer;
@@ -90,11 +90,11 @@ button {
   border-radius: 4px;
   background-color: darkorange;
   color: #fefefe;
-}
-button:hover {
+} */
+/* button:hover {
   background-color: #4a4e69;
   color: #fefefe;
-}
+} */
 
 .error {
   color: #db2269;

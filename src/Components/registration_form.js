@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./registration_form.css";
+import { Button } from "@material-ui/core";
+import history from "../History";
 
 const validEmailRegex = RegExp(
   /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
@@ -13,7 +15,7 @@ const validateForm = (errors) => {
   return valid;
 };
 
-class Register extends Component {
+class Registration extends Component {
   //Form Validation
   constructor(props) {
     super(props);
@@ -57,7 +59,8 @@ class Register extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     if (validateForm(this.state.errors)) {
-      console.info("Valid Form");
+      this.state.history.push("/Rentals");
+      console.log("Valid Form");
     } else {
       console.log("Invalid Form");
     }
@@ -106,11 +109,13 @@ class Register extends Component {
                 <span className="error">{errors.password}</span>
               )}
             </div>
-            <div className="info">
+            {/* <div className="info">
               <small>Password must be eight characters in length.</small>
-            </div>
+            </div> */}
             <div className="submit">
-              <button>Create</button>
+              <Button color="primary" variant="contained">
+                Register
+              </Button>
             </div>
           </form>
         </div>
@@ -119,4 +124,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default Registration;
