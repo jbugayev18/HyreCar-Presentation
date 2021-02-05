@@ -1,10 +1,8 @@
-# Getting Started with Create React App
+# HyreCar Presentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Created a single page web application that allows users to perform queries and commands to cars that they own
 
-## Available Scripts
-
-In the project directory, you can run:
+## Background
 
 ### `npm start`
 
