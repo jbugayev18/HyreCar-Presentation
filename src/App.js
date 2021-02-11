@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 // import { Switch, Route } from "react-router-dom";
 import Car from "./cars";
 import "./App.css";
@@ -6,39 +6,44 @@ import NavBar from "./Components/navbar";
 // import Registration from "./Components/registration_form";
 // import Rentals from "./Components/rentals";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cars: [],
-      search: "",
-      sort: "",
-      error: null,
-    };
-  }
+function App(props) {
+  const [cars, setCars] = useState([]);
+  const [search, setSearch] = useState("");
+  const [sort, setSort] = useState("");
+  const [error, setError] = useState(null);
 
-  setSearch(search) {
-    this.setState({
-      search,
-    });
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     cars: [],
+  //     search: "",
+  //     sort: "",
+  //     error: null,
+  //   };
+  // }
 
-  setSort(sort) {
-    this.setState({
-      sort,
-    });
-  }
+  // setSearch(search) {
+  //   this.setState({
+  //     search,
+  //   });
+  // }
 
-  handleSubmit(e) {
+  // setSort(sort) {
+  //   this.setState({
+  //     sort,
+  //   });
+  // }
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     const baseURL = "http://localhost:8000/cars";
 
     const params = [];
-    if (this.state.search) {
-      params.push(`search=${this.state.search}`);
+    if (search) {
+      params.push(`search=${search}`);
     }
-    if (this.state.sort) {
-      params.push(`sort=${this.state.sort}`);
+    if (sort) {
+      params.push(`sort=${sort}`);
     }
     const query = params.join("&");
     const url = `${baseURL}?${query}`;
@@ -55,56 +60,59 @@ class App extends Component {
         return res.json();
       })
       .then((data) => {
-        this.setState({
-          cars: data,
-          error: null,
-        });
+        setCars(data);
+        setError(null);
+        // this.setState({
+        //   cars: data,
+        //   error: null,
+        // });
       })
       .catch((err) => {
-        this.setState({
-          error: "Sorry, could not get car at this time",
-        });
+        setError("Sorry,could not get car at this time");
+        // this.setState({
+        //   error: "Sorry, could not get car at this time",
+        // });
       });
-  }
+  };
 
-  render() {
-    const cars = this.state.cars.map((car, i) => {
-      return <Car {...car} key={i} />;
-    });
+  // render() {
+  const vehicles = cars.map((car, i) => {
+    return <Car {...car} key={i} />;
+  });
 
-    return (
-      <main className="App">
+  return (
+    <main className="App">
       <NavBar></NavBar>
-        <h1>Registered Cars</h1>
-        <div className="search">
-          <form onSubmit={(e) => this.handleSubmit(e)}>
-            <label htmlFor="search">Make: </label>
-            <input
-              type="text"
-              id="search"
-              name="search"
-              value={this.state.search}
-              onChange={(e) => this.setSearch(e.target.value)}
-            />
+      <h1>Registered Cars</h1>
+      <div className="search">
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <label htmlFor="search">Make: </label>
+          <input
+            type="text"
+            id="search"
+            name="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
 
-            <label htmlFor="sort">Sort: </label>
-            <select
-              id="sort"
-              name="sort"
-              onChange={(e) => this.setSort(e.target.value)}
-            >
-              <option value="model">Model</option>
-              <option value="year">Year</option>
-              <option value="VIN">VIN</option>
-            </select>
-            <button type="submit">Search</button>
-          </form>
-          <div className="App_error">{this.state.error}</div>
-        </div>
-        {cars}
-      </main>
-    );
-  }
+          <label htmlFor="sort">Sort: </label>
+          <select
+            id="sort"
+            name="sort"
+            onChange={(e) => setSort(e.target.value)}
+          >
+            <option value="model">Model</option>
+            <option value="year">Year</option>
+            <option value="VIN">VIN</option>
+          </select>
+          <button type="submit">Search</button>
+        </form>
+        <div className="App_error">{error}</div>
+      </div>
+      {vehicles}
+    </main>
+  );
+  // }
 }
 
 export default App;
