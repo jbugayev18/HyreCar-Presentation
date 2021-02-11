@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./registration_form.css";
 import { Button } from "@material-ui/core";
-import history from "../History";
+import { Link } from "react-router-dom";
 
 const validEmailRegex = RegExp(
   /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
@@ -59,7 +59,6 @@ class Registration extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     if (validateForm(this.state.errors)) {
-      this.props.history.push("/Rentals");
       console.log("Valid Form");
     } else {
       console.log("Invalid Form");
@@ -114,7 +113,8 @@ class Registration extends Component {
             </div> */}
             <div className="submit">
               <Button color="primary" variant="contained">
-                Register
+                {" "}
+                <Link to={"/Rentals"}>Register</Link>
               </Button>
             </div>
           </form>

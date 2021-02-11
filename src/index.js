@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import Registration from "./Components/registration_form";
+// import Registration from "./Components/registration_form";
 import { BrowserRouter as Router } from "react-router-dom";
-import Routes from "./Components/route";
+// import Routes from "./Components/route";
 
 import reportWebVitals from "./reportWebVitals";
 
@@ -12,8 +12,8 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <App />
-      <Registration />
-      <Routes />
+      {/* <Registration /> */}
+      {/* <Routes /> */}
     </Router>
   </React.StrictMode>,
   document.getElementById("root")
