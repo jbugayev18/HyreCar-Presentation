@@ -2,11 +2,9 @@ import React, { Component } from "react";
 // import { Switch, Route } from "react-router-dom";
 import Car from "./cars";
 import "./App.css";
-// import NavBar from "./Components/navbar";
+import NavBar from "./Components/navbar";
 // import Registration from "./Components/registration_form";
 // import Rentals from "./Components/rentals";
-
-
 
 class App extends Component {
   constructor(props) {
@@ -34,6 +32,7 @@ class App extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const baseURL = "http://localhost:8000/cars";
+
     const params = [];
     if (this.state.search) {
       params.push(`search=${this.state.search}`);
@@ -44,7 +43,11 @@ class App extends Component {
     const query = params.join("&");
     const url = `${baseURL}?${query}`;
 
-    fetch(url)
+    fetch(url, {
+      headers: {
+        Authorization: "Bearer a0593bbc-6bec-11eb-9439-0242ac130002",
+      },
+    })
       .then((res) => {
         if (!res.ok) {
           throw new Error(res.statusText);
@@ -71,6 +74,7 @@ class App extends Component {
 
     return (
       <main className="App">
+      <NavBar></NavBar>
         <h1>Registered Cars</h1>
         <div className="search">
           <form onSubmit={(e) => this.handleSubmit(e)}>
