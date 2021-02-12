@@ -83,7 +83,7 @@ function App(props) {
   return (
     <main className="App">
       <NavBar></NavBar>
-      <h1>Registered Cars</h1>
+      <h1>Listings</h1>
       <div className="search">
         <form onSubmit={(e) => handleSubmit(e)}>
           <label htmlFor="search">Make: </label>
@@ -103,6 +103,7 @@ function App(props) {
           >
             <option value="model">Model</option>
             <option value="year">Year</option>
+            <option value="color">Color</option>
             <option value="VIN">VIN</option>
           </select>
           <button type="submit">Search</button>
