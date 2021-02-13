@@ -15,11 +15,13 @@ export default function Car(props) {
           xs={12}
         >
           <Box
+            display="flex"
             bgcolor="primary.main"
             color="primary.contrastText"
             p={3}
             flexDirection="column"
             borderRadius={16}
+            width="75%"
           >
             <h2>{props.make}</h2>
             <div className="model">Model: {props.model}</div>
@@ -29,7 +31,12 @@ export default function Car(props) {
             <div className="VIN"> VIN: {props.VIN}</div>
 
             <Box p={3}>
-              <img alt="cars" width="700" src={props.image}></img>
+              <img
+                alt="cars"
+                display="flex"
+                width="90%"
+                src={props.image}
+              ></img>
             </Box>
           </Box>
         </Grid>
