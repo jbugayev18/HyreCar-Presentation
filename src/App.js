@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import Car from "./cars";
 import "./App.css";
 import NavBar from "./Components/navbar";
+import TextField from "@material-ui/core/TextField";
+import MenuItem from "@material-ui/core/MenuItem";
+import Button from "@material-ui/core/Button";
 // import Registration from "./Components/registration_form";
 // import Rentals from "./Components/rentals";
 
@@ -80,22 +83,37 @@ function App(props) {
     return <Car {...car} key={i} />;
   });
 
+  const options = [
+    { value: "model", label: "Model" },
+    { value: "year", label: "Year" },
+    { value: "VIN", label: "VIN" },
+  ];
+
   return (
     <main className="App">
       <NavBar></NavBar>
       <h1>Listings</h1>
       <div className="search">
         <form onSubmit={(e) => handleSubmit(e)}>
-          <label htmlFor="search">Make: </label>
+          {/* <label htmlFor="search">Make: </label>
           <input
             type="text"
             id="search"
             name="search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+          /> */}
+          <TextField
+            id="search"
+            label="Make"
+            style={{ width: "150px", marginRight: "10px" }}
+            name="search"
+            variant="outlined"
+            size="small"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
-
-          <label htmlFor="sort">Sort: </label>
+          {/* <label htmlFor="sort">Sort: </label>
           <select
             id="sort"
             name="sort"
@@ -105,8 +123,25 @@ function App(props) {
             <option value="year">Year</option>
             <option value="color">Color</option>
             <option value="VIN">VIN</option>
-          </select>
-          <button type="submit">Search</button>
+          </select> */}
+          <TextField
+            id="outlined-select-currency"
+            style={{ width: "150px", marginRight: "10px" }}
+            select
+            label="Select"
+            value={sort}
+            onChange={(e) => setSort(e.target.value)}
+            helperText="Model, Year, VIN"
+            variant="outlined"
+            size="small"
+          >
+            {options.map((option) => (
+              <MenuItem key={option.value} value={option.value}></MenuItem>
+            ))}
+          </TextField>
+          <Button type="submit" variant="contained" color="primary">
+            Search
+          </Button>
         </form>
         <div className="App_error">{error}</div>
       </div>
