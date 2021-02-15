@@ -3,18 +3,19 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 // import Registration from "./Components/registration_form";
-import { BrowserRouter as Router } from "react-router-dom";
-// import Routes from "./Components/route";
+import { BrowserRouter, BrowserRouter as Router } from "react-router-dom";
+// import Routes from "./Components/Routes";
 
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <App />
-      {/* <Registration /> */}
-      {/* <Routes /> */}
-    </Router>
+    <BrowserRouter>
+      <Router>
+        {/* <Routes /> */}
+        <App />
+      </Router>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
