@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import SingIn from "./Signin";
-import App from "../App";
+import Listings from "./Listings";
 
 class Routes extends Component {
   render() {
     return (
-      <main>
+      <Switch>
         <Route exact path="/" component={SingIn} />
-        <Route exact path="/listings" component={App} />
-      </main>
+        <Route exact path="/listings" component={Listings} />
+      </Switch>
     );
   }
 }

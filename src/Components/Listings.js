@@ -1,41 +1,14 @@
 import React, { useState } from "react";
-// import { Switch, Route } from "react-router-dom";
-import Car from "./cars";
-import "./App.css";
-import NavBar from "./Components/Navbar";
+import Car from "../cars";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
-// import Registration from "./Components/registration_form";
-// import Rentals from "./Components/rentals";
 
 function Listings(props) {
   const [cars, setCars] = useState([]);
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
   const [error, setError] = useState(null);
-
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     cars: [],
-  //     search: "",
-  //     sort: "",
-  //     error: null,
-  //   };
-  // }
-
-  // setSearch(search) {
-  //   this.setState({
-  //     search,
-  //   });
-  // }
-
-  // setSort(sort) {
-  //   this.setState({
-  //     sort,
-  //   });
-  // }
 
   const handleSubmit = (e) => {
     e.preventDefault();
