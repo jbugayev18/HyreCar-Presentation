@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter, BrowserRouter as Router } from "react-router-dom";
-import { Auth0Provider } from "@autho0/auth0-react";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 import reportWebVitals from "./reportWebVitals";
 
