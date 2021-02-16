@@ -2,21 +2,25 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-// import Registration from "./Components/registration_form";
 import { BrowserRouter, BrowserRouter as Router } from "react-router-dom";
-// import Routes from "./Components/Routes";
+import { Auth0Provider } from "@autho0/auth0-react";
 
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Router>
-        {/* <Routes /> */}
-        <App />
-      </Router>
-    </BrowserRouter>
-  </React.StrictMode>,
+  <Auth0Provider
+    domain="jbuga.us.auth0.com"
+    clientId="bmrerfBu4jjaAMYlcUnDF2ynprTT5sGW"
+    redirectUri={window.location.origin}
+  >
+    <React.StrictMode>
+      <BrowserRouter>
+        <Router>
+          <App />
+        </Router>
+      </BrowserRouter>
+    </React.StrictMode>
+  </Auth0Provider>,
   document.getElementById("root")
 );
 
