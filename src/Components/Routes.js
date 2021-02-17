@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 // import LogIn from "./LogIn";
 import SignIn from "./Signin";
 import Listings from "./Listings";
-import Moreinfo from "./Moreinfo";
+import Moreinfo from "./MoreInfo";
 
 class Routes extends Component {
   render() {
@@ -16,6 +16,8 @@ class Routes extends Component {
         <Route exact path="/listings">
           <Listings />
         </Route>
+
+        <Route exact path="/listings/:id" component={Moreinfo}/>
 
         <Route exact path="/moreinfo">
           <Moreinfo />
