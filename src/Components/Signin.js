@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -12,6 +12,10 @@ import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import { useHistory } from "react-router-dom";
+import TokenService from "../services/token-service";
+
+import AuthApiService from "../services/auth-api-service";
 
 function Copyright() {
   return (
@@ -60,7 +64,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignInSide() {
+export default function SignIn(props) {
+  const [error, setError] = useState(null);
+  const history = useHistory();
+
+  const handleSubmitJwtAuth = (ev) => {
+    ev.preventDefault();
+
+    const { email, password } = ev.target;
+
+    AuthApiService.postLogin({
+      email: email.value,
+      password: password.value,
+    })
+      .then(() => {
+        email.value = "";
+        password.value = "";
+        if (TokenService.hasAuthToken()) {
+          history.push("/listings");
+        }
+        // props.onLoginSuccess();
+      })
+      .catch((res) => {
+        setError("Login unsuccessful");
+      });
+  };
+
   const classes = useStyles();
 
   return (
@@ -76,7 +105,8 @@ export default function SignInSide() {
             Sign in
           </Typography>
 
-          <form className={classes.form} noValidate>
+          <form onSubmit={(e) => handleSubmitJwtAuth(e)}>
+            {/* className={classes.form} noValidate> */}
             <TextField
               variant="outlined"
               margin="normal"
@@ -112,6 +142,7 @@ export default function SignInSide() {
             >
               Sign In
             </Button>
+            <div className="SignIn_error">{error}</div>
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">

@@ -16,10 +16,7 @@ class Routes extends Component {
         <Route exact path="/listings">
           <Listings />
         </Route>
-
-        <Route exact path="/listings/:id" component={Moreinfo}/>
-
-        <Route exact path="/moreinfo">
+        <Route exact path="/moreinfo/:id">
           <Moreinfo />
         </Route>
       </Switch>
