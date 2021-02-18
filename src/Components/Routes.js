@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-// import LogIn from "./LogIn";
 import SignIn from "./Signin";
 import Listings from "./Listings";
 import Moreinfo from "./MoreInfo";

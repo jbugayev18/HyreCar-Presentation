@@ -5,6 +5,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
 
 function Listings(props) {
+  console.log(props);
+
   const [cars, setCars] = useState([]);
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");

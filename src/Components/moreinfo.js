@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MoreInfo(props) {
   const classes = useStyles();
+  console.log(props);
 
   return (
     <div className={classes.root}>
@@ -36,34 +37,39 @@ export default function MoreInfo(props) {
         <Grid container spacing={2}>
           <Grid item>
             <ButtonBase className={classes.image}>
-              <img
-                className={props.image}
-                alt="complex"
-                src="/static/images/grid/complex.jpg"
-              />
+              <img className={props.image} alt="car" src={props.image} />
             </ButtonBase>
           </Grid>
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
-                <Typography gutterBottom variant="h1">
+                <Typography gutterBottom component="p" variant="h1">
+                  {props.make}
                   Car Make
                 </Typography>
                 <Typography variant="body2" gutterBottom>
-                  Full resolution 1920x1080 • JPEG
+                  {props.make}
+                  {props.model}
+                  {props.year}
+                  {props.color}
+                  {props.Odometer}
+                  {props.VIN}
+                  Place all of the keys here
                 </Typography>
-                <Typography variant="body2" color="textSecondary">
+                {/* <Typography variant="body2" color="textSecondary">
                   ID: 1030114
-                </Typography>
+                </Typography> */}
               </Grid>
               <Grid item>
-                <Typography variant="body2" style={{ cursor: "pointer" }}>
+                {/* <Typography variant="body2" style={{ cursor: "pointer" }}>
                   Remove
-                </Typography>
+                </Typography> */}
               </Grid>
             </Grid>
             <Grid item>
-              <Typography variant="subtitle1">$19.00</Typography>
+              <Typography variant="subtitle1">
+                Rent Price: $70.00 per day
+              </Typography>
             </Grid>
           </Grid>
         </Grid>
