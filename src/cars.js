@@ -9,10 +9,10 @@ import React from "react";
 
 export default function Car(props) {
   return (
-    <Card style={{ width: "70%", margin: "0 auto" }}>
+    <Card style={{ width: "75%", margin: "0 auto" }}>
       <CardActionArea>
         <CardMedia
-          style={{ height: "250px" }}
+          style={{ height: "450px" }}
           image={props.image}
           title={`${props.make} ${props.model}`}
         />

@@ -32,6 +32,16 @@ export default function MoreInfo(props) {
   console.log(props);
 
   return (
+    // componentDidMount() {
+    //     fetch('https://localhost:8000/cars')
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         const car = Object.kays(data)
+    //             .map(key => data[key])
+    //             props({car})
+    //     })
+    // }
+
     <div className={classes.root}>
       <Paper className={classes.paper}>
         <Grid container spacing={2}>
